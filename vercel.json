@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "builds": [
+    { "src": "api/index.py", "use": "@vercel/python@3.11" }
+  ],
+  "routes": [
+    { "src": "/(.*)", "dest": "api/index.py" }
+  ],
+  "redirects": [
+    { "source": "https://nganmiu.store/(.*)", "destination": "https://www.nganmiu.store/$1", "permanent": true }
+  ],
+  "regions": ["hkg1"]
+}
