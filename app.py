@@ -867,7 +867,6 @@ SPC_ST=xyz...
 
 
 
-
        </div>
       </form>
     </div>
@@ -1014,7 +1013,6 @@ SPC_ST=xyz...
 
 
 
-
 </main>
 
 <!-- Modal: xem Timeline -->
@@ -1067,6 +1065,54 @@ SPC_ST=xyz...
     </div>
   </div>
 </div>
+<!-- Modal: Check Cookie SLL -->
+<div class="modal fade" id="bulkCookieModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"><i class="bi bi-shield-check"></i> Check Cookie SLL</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Đóng"></button>
+      </div>
+
+      <div class="modal-body">
+        <label class="form-label fw-semibold">Dán cookie (mỗi dòng 1 cookie: SPC_ST=... hoặc cookie đầy đủ):</label>
+        <textarea id="cookieBulkInput" class="form-control mono" rows="8"
+          placeholder="SPC_ST=abc...
+SPC_ST=xyz...
+..."></textarea>
+
+        <div class="d-flex flex-wrap align-items-center gap-2 mt-3">
+          <button id="btnRunCookieCheck" class="btn btn-warning" type="button" onclick="runCookieCheck()">
+  <i class="bi bi-play-fill"></i> Check
+</button>
+
+
+          <span class="badge bg-success">Live: <span id="liveCount2">0</span></span>
+          <span class="badge bg-secondary">Die: <span id="dieCount2">0</span></span>
+          <span id="progressText2" class="text-muted"></span>
+        </div>
+
+        <div class="mt-3">
+          <pre id="resultArea2" class="border rounded p-2" style="max-height: 50vh; white-space: pre-wrap;"></pre>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button id="btnExportLive2" type="button" class="btn btn-outline-success btn-sm">
+          Xuất Cookie Live (.txt)
+        </button>
+        <button id="btnDeleteDie2" type="button" class="btn btn-outline-danger btn-sm">
+          Xoá Cookie Die
+        </button>
+        <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Đóng</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
 <script>
   /* Tooltip cho địa chỉ */
 
@@ -1229,7 +1275,7 @@ FAVICON_SVG = """<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256
   <rect width="256" height="256" rx="48" fill="#ffffff"/>
   <rect x="8" y="8" width="240" height="240" rx="44" fill="#fff2ee" stroke="#EE4D2D" stroke-width="8"/>
   <text x="50%" y="58%" text-anchor="middle" font-family="Inter,Segoe UI,Arial,sans-serif"
-        font-size="150" font-weight="800" fill="#EE4D2D" dominant-baseline="middle">M</text>
+        font-size="150" font-weight="800" fill="#EE4D2D" dominant-baseline="middle">N</text>
 </svg>"""
 
 @app.get("/favicon.svg")
